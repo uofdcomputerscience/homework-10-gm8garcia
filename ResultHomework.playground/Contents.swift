@@ -9,9 +9,9 @@ enum LibraryError: Error
 }
 
 // Implement a function that returns a Result of string or your error type
-func bookAvialable(value: Int) -> Result<String, Error> 
+func bookAvialable(value: String) -> Result<String, Error> 
 {
-    if (value < 5)
+    if (value == "checked in")
     {
         return .success("Book is avialable for check out.")
     }
@@ -19,7 +19,7 @@ func bookAvialable(value: Int) -> Result<String, Error>
 }
 
 // Call your function in a way that will return an error result, and handle that error.
-let test = bookAvailable(value: 6)
+let test = bookAvailable(value: "checked out")
 switch test
 {
 case .success(let string):
@@ -30,7 +30,7 @@ case .failure(let error):
 
 
 // Call your function in a way that will return a success result, and handle the value.
-let test2 = bookAvailable(value: 4)
+let test2 = bookAvailable(value: "checked in")
 switch test2 
 {
 case .success(let string):
